@@ -98,6 +98,7 @@ local get_venvs_for = function(base_path, source, opts)
   if base_path == nil then
     return venvs
   end
+  base_path = tostring(base_path)
   local paths = scan_dir(base_path, vim.tbl_extend('force', { depth = 1, only_dirs = true, silent = true }, opts or {}))
   for _, path in ipairs(paths) do
     table.insert(venvs, {
